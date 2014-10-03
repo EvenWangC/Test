@@ -15,7 +15,7 @@ namespace WpfApplication2.Model
 
         public void CreateTable()
         {
-            string createtablestring = "create table if not exists Nurse (NurseNo NUMERIC, Name String, StationNo NUMERIC);";
+            string createtablestring = "create table if not exists Nurse (NurseNo String, Name String, StationNo String);";
             DB.CreateSQLiteTable(createtablestring);
         }
 
@@ -41,9 +41,9 @@ namespace WpfApplication2.Model
             return true;
         }
 
-        public bool Del(int NurseNo)
+        public bool Del(string NurseNo)
         {
-            string deletestring = string.Format("DELETE FROM Nurse WHERE NurseNo = {0}", NurseNo);
+            string deletestring = string.Format("DELETE FROM Nurse WHERE NurseNo = '{0}'", NurseNo);
             DB.SQLiteInsertUpdateDelete(deletestring);
             return true;
         }
