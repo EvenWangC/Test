@@ -76,12 +76,11 @@ namespace WpfApplication2
             foreach (NurseView info in AddNurse)
                 NurseData.Insert(info);
 
-            AddNurse.Clear();
+            
 
             foreach (NurseView info in EditNurse)
                 NurseData.Update(info);
-
-            EditNurse.Clear();
+            
             
             QueryData(); 
         }
@@ -121,7 +120,9 @@ namespace WpfApplication2
             NurseDataTable = NurseData.Query();
             NurseGrid.DataContext = NurseDataTable;
             ModiStatus(false);
-            NurseGrid.CanUserAddRows = false;  
+            NurseGrid.CanUserAddRows = false;
+            AddNurse.Clear();
+            EditNurse.Clear();
         }
 
         private void ModiStatus(bool Status)
